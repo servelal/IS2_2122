@@ -15,5 +15,24 @@
   		<artifactId>practica3common</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
+  	
+  	<dependency>
+  		<groupId>es.unican.is2</groupId>
+  		<artifactId>practica3GUI</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	
+  	<dependency>
+  		<groupId>es.unican.is2</groupId>
+  		<artifactId>practica3business</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	
+  	<dependency>
+  		<groupId>es.unican.is2</groupId>
+  		<artifactId>practica3DAO</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
   </dependencies>
+  
 </project>
