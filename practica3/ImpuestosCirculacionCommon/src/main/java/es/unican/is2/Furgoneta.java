@@ -28,8 +28,22 @@ public class Furgoneta
   
 	@Override
     public double precioImpuesto() {
-    	//TODO
-		return 0;
+		double precio = 0;
+		if(potencia>8) {
+			precio=25.24;
+		}else if(potencia>11.99) {
+			precio=68.16;
+		}else if(potencia>15.99) {
+			precio=143.88;
+		}else if(potencia>19.99) {
+			precio=179.22;
+		}else if(potencia<20) {
+			precio=224;
+		}
+		if(getComercial()) {
+			precio = precio * 1.20 ;
+		} 
+		return precio;
     	
     }
 }
