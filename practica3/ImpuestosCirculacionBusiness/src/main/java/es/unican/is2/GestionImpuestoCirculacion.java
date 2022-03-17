@@ -12,20 +12,17 @@ public class GestionImpuestoCirculacion implements IGestionContribuyentes, IGest
 		this.vehiculos = vehiculos;
 	}
 	
-	public Contribuyente altaContribuyente(Contribuyente c) {
-		// TODO
-		return null;
+	public Contribuyente altaContribuyente(Contribuyente c) {	
+		return contribuyentes.creaContribuyente(c);
 	}
 
 	
 	public Contribuyente bajaContribuyente(String dni) throws OperacionNoValida {
-		// TODO
-		return null;		
+		return contribuyentes.eliminaContribuyente(dni);
 	 }
 	
 	public Contribuyente contribuyente(String dni) {
-		// TODO
-		return null;
+		return contribuyentes.contribuyente(dni);
 	}
 
 	public Vehiculo altaVehiculo(Vehiculo v, String dni) throws OperacionNoValida {
