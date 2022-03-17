@@ -29,20 +29,26 @@ public class GestionImpuestoCirculacion implements IGestionContribuyentes, IGest
 	}
 
 	public Vehiculo altaVehiculo(Vehiculo v, String dni) throws OperacionNoValida {
-		// TODO
-		return null;
+		Vehiculo nuevoVehiculo = vehiculos.creaVehiculo(v);
+		Contribuyente contribuyente = contribuyentes.contribuyente(dni);
+		contribuyentes.actualizaContribuyente(contribuyente);
+		
+		return nuevoVehiculo;
 	}
 
 	@Override
 	public Vehiculo bajaVehiculo(String matricula, String dni) throws OperacionNoValida {
-		// TODO
-		return null;
+		Vehiculo vehiculo = vehiculos.eliminaVehiculo(matricula);
+		
+		Contribuyente contribuyente = contribuyentes.contribuyente(dni);
+		contribuyentes.actualizaContribuyente(contribuyente);
+		
+		return vehiculo;
 	}
 
 	@Override
 	public Vehiculo vehiculo(String matricula) {
-		// TODO
-		return null;
+		return vehiculos.vehiculo(matricula);
 	}	
 }
 
