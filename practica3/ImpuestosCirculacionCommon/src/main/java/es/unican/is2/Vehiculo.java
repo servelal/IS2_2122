@@ -18,7 +18,7 @@ public abstract class Vehiculo implements Serializable{
 
 	/**
 	 * Retorna la matricula del vehiculo
-	 * @return matricula
+	 * @return matriculas
 	 */
     public String getMatricula() {
 		return matricula;

@@ -23,8 +23,19 @@ public class Turismo
      */
 	@Override
     public double precioImpuesto() {
-		// TODO
-    	return 0;
+		if (potencia < 8) {
+			return 25.24;
+		}
+		else if (potencia < 12) {
+			return 68.16;
+		}
+		else if (potencia < 16) {
+			return 143.88;
+		}
+		else if (potencia < 20) {
+			return 179.22;
+		}
+    	return 224;
     }
     
 }

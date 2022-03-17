@@ -1,5 +1,7 @@
 package es.unican.is2;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 
 @SuppressWarnings("serial")
@@ -17,8 +19,16 @@ public class Contribuyente implements Serializable {
      * @return Valor del impuesto a pagar
      */
     public double totalAPagar() {
-    	//TODO
-    	return 0;
+    	double total = 0;
+    	LocalDate fechaActual = LocalDate.now();
+    	for (Vehiculo vehiculo: getVehiculos()) {
+    		int diferenciaAnhos = Period.between(fechaActual, 
+    				vehiculo.getFechaMatriculacion()).getYears();
+    		if (diferenciaAnhos <= 25 ) {
+    			total += vehiculo.precioImpuesto();
+    		}
+    	}
+    	return total;
     }
     
     /**
