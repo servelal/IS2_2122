@@ -17,7 +17,7 @@ public class Contribuyente implements Serializable {
      * @return Valor del impuesto a pagar
      */
     public double totalAPagar() {
-    	//TODO
+    	
     	return 0;
     }
     
