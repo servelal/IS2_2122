@@ -2,6 +2,7 @@ package es.unican.is2;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("serial")
@@ -13,7 +14,17 @@ public class Contribuyente implements Serializable {
     private String apellido2;
     private String dni;
     
-    /**
+    
+    
+    public Contribuyente(String nombre, String apellido1, String apellido2, String dni) {
+		this.vehiculos = new ArrayList<Vehiculo>();
+		this.nombre = nombre;
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+		this.dni = dni;
+	}
+
+	/**
      * Retorna el total a pagar por el impuesto 
      * de circulacion de todos sus vehiculos
      * @return Valor del impuesto a pagar
