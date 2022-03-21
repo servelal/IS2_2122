@@ -1,5 +1,6 @@
 package es.unican.is2;
 import java.io.Serializable;
+import java.time.LocalDate;
 @SuppressWarnings("serial")
 public class Furgoneta
     extends Turismo implements Serializable
@@ -7,6 +8,10 @@ public class Furgoneta
     
     private double potencia;
     private boolean comercial;
+    
+    public Furgoneta(String matricula, LocalDate fechaMatriculacion, double potencia) {
+		super(matricula, fechaMatriculacion, potencia);
+    }
     
    /**
     * Retorna el valor del atributo comercial

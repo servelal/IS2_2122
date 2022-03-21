@@ -1,5 +1,6 @@
 package es.unican.is2;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @SuppressWarnings("serial")
 public class Turismo
@@ -7,6 +8,11 @@ public class Turismo
 {
 
 	private double potencia;
+	
+	public Turismo(String matricula, LocalDate fechaMatriculacion, double potencia) {
+		super(matricula, fechaMatriculacion);
+		this.potencia = potencia;
+	}
 	
 	/**
 	 * Retorna la potencia del turismo
