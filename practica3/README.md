@@ -1,0 +1,1 @@
+Esta práctica ha sido realizada en conjunto por Héctor González Iglesias y Sergio Velarde Álvarez
