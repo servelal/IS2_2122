@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 public class RellenaAyuntamiento {
 	
-	private static final String FILE_PATH = "C:\\Temp\\ayuntamiento.out"e;
+	private static final String FILE_PATH = "C:\\Temp\\ayuntamiento.out";
 
 	public static void main(String args[]) {
 		
