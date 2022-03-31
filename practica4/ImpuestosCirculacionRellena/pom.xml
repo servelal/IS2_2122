@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>es.unican.is2</groupId>
-  <artifactId>practica3Rellena</artifactId>
+  <artifactId>ImpuestoCirculacionRellena</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
   <properties>
@@ -12,25 +12,25 @@
     <dependencies>
   	<dependency>
   		<groupId>es.unican.is2</groupId>
-  		<artifactId>practica3common</artifactId>
+  		<artifactId>ImpuestoCirculacionCommon</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
   	
   	<dependency>
   		<groupId>es.unican.is2</groupId>
-  		<artifactId>practica3GUI</artifactId>
+  		<artifactId>ImpuestoCirculacionGUI</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
   	
   	<dependency>
   		<groupId>es.unican.is2</groupId>
-  		<artifactId>practica3business</artifactId>
+  		<artifactId>ImpuestoCirculacionBusiness</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
   	
   	<dependency>
   		<groupId>es.unican.is2</groupId>
-  		<artifactId>practica3DAO</artifactId>
+  		<artifactId>ImpuestoCirculacionDAO</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
   </dependencies>
