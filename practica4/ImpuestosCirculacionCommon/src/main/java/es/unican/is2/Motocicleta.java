@@ -1,6 +1,7 @@
 package es.unican.is2;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 @SuppressWarnings("serial")
 public class Motocicleta extends Vehiculo
@@ -20,8 +21,26 @@ public class Motocicleta extends Vehiculo
     }
   
 	@Override
-    public double precioImpuesto() {
-		if (cilindrada <= 125) {
+    public double precioImpuesto() throws OperacionNoValida {
+		
+		if (getFechaMatriculacion() == null) {
+			throw new OperacionNoValida("La fecha de matriculacion no puede ser NULL");
+		}
+		Period diferencia = Period.between(getFechaMatriculacion(), LocalDate.now());
+		
+		if (diferencia.getDays() < 0) {
+			throw new OperacionNoValida("La fecha de matriculacion no puede ser superior a la actual");
+		}
+		
+		if (cilindrada <= 0) {
+			throw new OperacionNoValida("La cilindrada tiene que ser un numero positivo mayor que 0");
+		}
+		
+		if (diferencia.getYears() >= 25 && diferencia.getDays() >= 1) {
+			return 0;
+		}
+		
+		if (cilindrada < 125) {
 			return 8.84;
 		}
 		else if (cilindrada < 250) {
@@ -33,6 +52,6 @@ public class Motocicleta extends Vehiculo
 		else if (cilindrada < 1000) {
 			return 60.58;
 		}
-		return 121.16;
+    	return 121.16;
     }
 }
