@@ -18,7 +18,7 @@ public abstract class Vehiculo implements Serializable{
      * Retorna el valor del impuesto de circulacion
      *  @return valor del impuesto circulacion
      */
-	public abstract double precioImpuesto (); 
+	public abstract double precioImpuesto () throws OperacionNoValida; 
 
 
 	/**

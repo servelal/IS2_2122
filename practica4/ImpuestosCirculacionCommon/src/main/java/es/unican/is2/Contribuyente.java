@@ -28,8 +28,9 @@ public class Contribuyente implements Serializable {
      * Retorna el total a pagar por el impuesto 
      * de circulacion de todos sus vehiculos
      * @return Valor del impuesto a pagar
+	 * @throws OperacionNoValida 
      */
-    public double totalAPagar() {
+    public double totalAPagar() throws OperacionNoValida {
     	double total = 0;
     	LocalDate fechaActual = LocalDate.now();
     	for (Vehiculo vehiculo: getVehiculos()) {

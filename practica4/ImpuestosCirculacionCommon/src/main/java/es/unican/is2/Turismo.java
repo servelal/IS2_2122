@@ -1,6 +1,7 @@
 package es.unican.is2;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.Period;
 
 @SuppressWarnings("serial")
 public class Turismo
@@ -28,7 +29,25 @@ public class Turismo
      *  @return precio
      */
 	@Override
-    public double precioImpuesto() {
+    public double precioImpuesto() throws OperacionNoValida {
+		
+		if (getFechaMatriculacion() == null) {
+			throw new OperacionNoValida("La fecha de matriculacion no puede ser NULL");
+		}
+		Period diferencia = Period.between(getFechaMatriculacion(), LocalDate.now());
+		
+		if (diferencia.getDays() < 0) {
+			throw new OperacionNoValida("La fecha de matriculacion no puede ser superior a la actual");
+		}
+		
+		if (potencia <= 0) {
+			throw new OperacionNoValida("La potencia tiene que ser un numero positivo mayor que 0");
+		}
+		
+		if (diferencia.getYears() >= 25 && diferencia.getDays() >= 1) {
+			return 0;
+		}
+		
 		if (potencia < 8) {
 			return 25.24;
 		}
