@@ -32,7 +32,6 @@ public class Turismo
      */
 	@Override
     public double precioImpuesto() throws OperacionNoValida {
-		
 		if (getFechaMatriculacion() == null) {
 			throw new OperacionNoValida("La fecha de matriculacion no puede ser NULL");
 		}
