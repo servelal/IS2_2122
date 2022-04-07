@@ -1,9 +1,11 @@
-package es.unican.is2;
+package es.unican.is2.ImpuestoCirculacion.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
+
+import es.unican.is2.ImpuestoCirculacion.vehiculos.Vehiculo;
 
 @SuppressWarnings("serial")
 public class Contribuyente implements Serializable {

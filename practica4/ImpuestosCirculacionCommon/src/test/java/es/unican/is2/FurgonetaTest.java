@@ -7,6 +7,9 @@ import javax.naming.OperationNotSupportedException;
 
 import org.junit.Test;
 
+import es.unican.is2.ImpuestoCirculacion.model.OperacionNoValida;
+import es.unican.is2.ImpuestoCirculacion.vehiculos.Furgoneta;
+
 public class FurgonetaTest {
 
 	@Test

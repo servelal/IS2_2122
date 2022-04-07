@@ -1,6 +1,9 @@
-package es.unican.is2;
+package es.unican.is2.ImpuestoCirculacion;
 import java.io.IOException;
 import java.util.List;
+
+import es.unican.is2.ImpuestoCirculacion.interfaz.IContribuyentesDAO;
+import es.unican.is2.ImpuestoCirculacion.model.Contribuyente;
 
 /**
  * Clase que implementa la capa DAO de acceso a contribuyentes.

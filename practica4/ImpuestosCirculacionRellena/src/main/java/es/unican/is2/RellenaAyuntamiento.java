@@ -7,6 +7,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 
+import es.unican.is2.ImpuestoCirculacion.Ayuntamiento;
+import es.unican.is2.ImpuestoCirculacion.model.Contribuyente;
+import es.unican.is2.ImpuestoCirculacion.vehiculos.Furgoneta;
+import es.unican.is2.ImpuestoCirculacion.vehiculos.Motocicleta;
+import es.unican.is2.ImpuestoCirculacion.vehiculos.Turismo;
+import es.unican.is2.ImpuestoCirculacion.vehiculos.Vehiculo;
+
 public class RellenaAyuntamiento {
 	
 	private static final String FILE_PATH = "C:\\Temp\\ayuntamiento.out";

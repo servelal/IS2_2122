@@ -1,4 +1,8 @@
-package es.unican.is2;
+package es.unican.is2.ImpuestoCirculacion.interfaz;
+
+import es.unican.is2.ImpuestoCirculacion.model.Contribuyente;
+import es.unican.is2.ImpuestoCirculacion.model.OperacionNoValida;
+
 /**
  * Interfaz de negocio para gestionar contribuyentes
  */

@@ -1,4 +1,4 @@
-package es.unican.is2;
+package es.unican.is2.ImpuestoCirculacion;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -8,6 +8,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import es.unican.is2.ImpuestoCirculacion.model.Contribuyente;
 
 
 /**

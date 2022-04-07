@@ -1,4 +1,8 @@
-package es.unican.is2;
+package es.unican.is2.ImpuestoCirculacion.interfaz;
+
+import es.unican.is2.ImpuestoCirculacion.model.OperacionNoValida;
+import es.unican.is2.ImpuestoCirculacion.vehiculos.Vehiculo;
+
 /**
  * Interfaz de negocio para gestionar vehículos
  */

@@ -1,5 +1,14 @@
-package es.unican.is2;
+package es.unican.is2.ImpuestoCirculacion;
 import java.util.List;
+
+import es.unican.is2.ImpuestoCirculacion.interfaz.IContribuyentesDAO;
+import es.unican.is2.ImpuestoCirculacion.interfaz.IGestionContribuyentes;
+import es.unican.is2.ImpuestoCirculacion.interfaz.IGestionVehiculos;
+import es.unican.is2.ImpuestoCirculacion.interfaz.IInfoImpuestoCirculacion;
+import es.unican.is2.ImpuestoCirculacion.interfaz.IVehiculosDAO;
+import es.unican.is2.ImpuestoCirculacion.model.Contribuyente;
+import es.unican.is2.ImpuestoCirculacion.model.OperacionNoValida;
+import es.unican.is2.ImpuestoCirculacion.vehiculos.Vehiculo;
 /**
  * Clase que implementa la capa de negocio de la aplicacion
  */

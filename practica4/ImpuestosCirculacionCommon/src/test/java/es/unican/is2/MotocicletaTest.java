@@ -6,6 +6,9 @@ import java.time.LocalDate;
 
 import org.junit.Test;
 
+import es.unican.is2.ImpuestoCirculacion.model.OperacionNoValida;
+import es.unican.is2.ImpuestoCirculacion.vehiculos.Motocicleta;
+
 public class MotocicletaTest {
 
 	@Test

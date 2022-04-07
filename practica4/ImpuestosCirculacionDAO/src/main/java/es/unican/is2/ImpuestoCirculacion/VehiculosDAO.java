@@ -1,7 +1,11 @@
-package es.unican.is2;
+package es.unican.is2.ImpuestoCirculacion;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+
+import es.unican.is2.ImpuestoCirculacion.interfaz.IVehiculosDAO;
+import es.unican.is2.ImpuestoCirculacion.model.Contribuyente;
+import es.unican.is2.ImpuestoCirculacion.vehiculos.Vehiculo;
 
 /**
  * Clase que implementa la capa DAO de acceso a vehiculos.

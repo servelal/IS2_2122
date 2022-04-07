@@ -1,4 +1,10 @@
-package es.unican.is2;
+package es.unican.is2.ImpuestoCirculacion;
+
+import es.unican.is2.ImpuestoCirculacion.ContribuyentesDAO;
+import es.unican.is2.ImpuestoCirculacion.GestionImpuestoCirculacion;
+import es.unican.is2.ImpuestoCirculacion.VehiculosDAO;
+import es.unican.is2.ImpuestoCirculacion.VistaFuncionario;
+
 /**
  * Clase principal que construye la aplicación de tres capas y lanza su ejecución
  */

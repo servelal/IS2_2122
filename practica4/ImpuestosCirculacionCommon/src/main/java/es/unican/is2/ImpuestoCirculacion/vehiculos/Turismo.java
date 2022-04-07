@@ -1,7 +1,9 @@
-package es.unican.is2;
+package es.unican.is2.ImpuestoCirculacion.vehiculos;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
+
+import es.unican.is2.ImpuestoCirculacion.model.OperacionNoValida;
 
 @SuppressWarnings("serial")
 public class Turismo
