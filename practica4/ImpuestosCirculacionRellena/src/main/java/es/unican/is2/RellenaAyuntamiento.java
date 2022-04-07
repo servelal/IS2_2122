@@ -17,7 +17,7 @@ public class RellenaAyuntamiento {
 		// Primer contribuyente
 		Contribuyente c1 = new Contribuyente("Pepe", "López", "Martínez", "11111111A");
 		Turismo t1 = new Turismo("1111-AAA", LocalDate.now().minusYears(5), 20);
-		Furgoneta f1 = new Furgoneta("1111-BBB", LocalDate.now().minusMonths(15), 50);
+		Furgoneta f1 = new Furgoneta("1111-BBB", LocalDate.now().minusMonths(15), 50, true);
 		c1.getVehiculos().add(t1);
 		c1.getVehiculos().add(f1);
 		

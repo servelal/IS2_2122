@@ -1,4 +1,7 @@
 package es.unican.is2;
+
+import java.util.List;
+
 /**
  * Clase que implementa la capa de negocio de la aplicacion
  */
@@ -36,10 +39,27 @@ public class GestionImpuestoCirculacion implements IGestionContribuyentes, IGest
 	@Override
 	public Vehiculo bajaVehiculo(String matricula, String dni) throws OperacionNoValida {
 		Vehiculo vehiculo = vehiculos.eliminaVehiculo(matricula);
+		if (vehiculo == null) { // Vehiculo no existe
+			throw new OperacionNoValida("El vehiculo con la matricula indicada no esta "
+					+ "registrado");
+		}
 		
+		// Contribuyente no existe
 		Contribuyente contribuyente = contribuyentes.contribuyente(dni);
-		contribuyentes.actualizaContribuyente(contribuyente);
+		if (contribuyente == null) {
+			throw new OperacionNoValida("El usuario con el DNI indicado no esta registrado");
+		}
 		
+		// Comprueba si el contribuyente tiene ese vehiculo
+		List<Vehiculo> vehiculos = contribuyente.getVehiculos();
+		if (!vehiculos.contains(vehiculo)) { 
+			throw new OperacionNoValida("El usuario con el DNI indicado no tiene registrado el "
+					+ "vehiculo indicado");
+		}
+		
+		vehiculos.remove(vehiculo);
+		contribuyentes.actualizaContribuyente(contribuyente);
+
 		return vehiculo;
 	}
 

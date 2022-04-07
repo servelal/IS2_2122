@@ -21,7 +21,8 @@ public class VehiculosDAO implements IVehiculosDAO {
 		return v;
 	}
 
-	public Vehiculo eliminaVehiculo(String matricula) {  
+	public Vehiculo eliminaVehiculo(String matricula) { 
+		
 		for (Contribuyente c:ayun.getContribuyentes()) {
 			for (Vehiculo v : c.getVehiculos()) {
 				if (v.getMatricula().equals(matricula)) {
