@@ -83,5 +83,7 @@ public class Contribuyente implements Serializable {
 		return dni;
 	}
     
-	
+	public void anhadeVehiculoContri(Vehiculo v) {
+		vehiculos.add(v);
+	}
 }
