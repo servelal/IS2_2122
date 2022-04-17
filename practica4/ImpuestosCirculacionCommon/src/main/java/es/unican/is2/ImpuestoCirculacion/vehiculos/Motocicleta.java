@@ -14,6 +14,7 @@ public class Motocicleta extends Vehiculo
 		super(matricula, fechaMatriculacion);
 		this.cilindrada = cilindrada;
 	}
+	
     /**
      * Retorna la cilindrada de la motocicleta
      * @return cilindrada
