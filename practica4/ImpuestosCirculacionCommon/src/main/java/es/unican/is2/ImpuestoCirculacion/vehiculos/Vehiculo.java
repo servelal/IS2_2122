@@ -39,10 +39,10 @@ public abstract class Vehiculo implements Serializable{
 		return fechaMatriculacion;
 	}
 
-	/*@Override
+	@Override
 	public String toString() {
 		return "Vehiculo [matricula=" + matricula + ", fechaMatriculacion=" + fechaMatriculacion + "]";
-	}*/
+	}
 	
 	
 

@@ -125,7 +125,7 @@ public class VistaFuncionario extends JFrame {
 				String totalStr = String.format("%.2f", total);
 				txtTotalContribuyente.setText(totalStr);
 			} catch (OperacionNoValida e) {
-				txtTotalContribuyente.setText("0");
+				txtTotalContribuyente.setText("N/A");
 			}
 			listModel.removeAllElements();
 			for (int i = 0; i < c.getVehiculos().size(); i++) {
