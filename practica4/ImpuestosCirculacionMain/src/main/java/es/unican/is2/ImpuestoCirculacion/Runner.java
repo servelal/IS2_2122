@@ -12,8 +12,8 @@ public class Runner {
 		// Componentes capa negocio
 		GestionImpuestoCirculacion negocio = new GestionImpuestoCirculacion(contribuyentesDAO, vehiculosDAO);
 		
-		// Componentes casa presentacion
-		VistaFuncionario vista = new VistaFuncionario(negocio, negocio, negocio);
+		// Componentes capa presentacion
+		VistaFuncionario vista = new VistaFuncionario(negocio);
 		
 		// Lanza ejecución
 		vista.setVisible(true);

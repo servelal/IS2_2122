@@ -34,18 +34,13 @@ public class VistaFuncionario extends JFrame {
 	private DefaultListModel<String> listModel;
 	private JButton btnBuscar;
 
-	private IGestionContribuyentes contribuyentes;
-	private IGestionVehiculos vehiculos;
 	private IInfoImpuestoCirculacion info;
 
 	/**
 	 * Create the frame.
 	 */
-	public VistaFuncionario(IGestionContribuyentes contribuyentes, IGestionVehiculos vehiculos,
-			IInfoImpuestoCirculacion info) {
+	public VistaFuncionario(IInfoImpuestoCirculacion info) {
 
-		this.contribuyentes = contribuyentes;
-		this.vehiculos = vehiculos;
 		this.info = info;
 		init();
 	}
@@ -125,7 +120,7 @@ public class VistaFuncionario extends JFrame {
 				String totalStr = String.format("%.2f", total);
 				txtTotalContribuyente.setText(totalStr);
 			} catch (OperacionNoValida e) {
-				txtTotalContribuyente.setText("N/A");
+				txtTotalContribuyente.setText("N/As");
 			}
 			listModel.removeAllElements();
 			for (int i = 0; i < c.getVehiculos().size(); i++) {
