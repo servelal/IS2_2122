@@ -22,6 +22,7 @@ public class ListaOrdenadaAcotada<E extends Comparable<E>> implements IListaOrde
 	 */
 	public ListaOrdenadaAcotada() {
 		this(MAX_POR_OMISION);
+		ultimo = -1;
 	}
 
 	public E get(int indice) {
@@ -41,7 +42,7 @@ public class ListaOrdenadaAcotada<E extends Comparable<E>> implements IListaOrde
 			}
 		}
 		// desplaza elementos hacia adelante
-		for (int i = ultimo; i > indice; i--) {
+		for (int i = ultimo; i >= indice; i--) {
 			lista[i + 1] = lista[i];
 		}
 		// inserta el elemento
@@ -71,6 +72,10 @@ public class ListaOrdenadaAcotada<E extends Comparable<E>> implements IListaOrde
 	public void clear() {
 		ultimo = -1;
 
+	}
+	
+	public int maximoTamanho() {
+		return MAX_POR_OMISION;
 	}
 
 }
