@@ -1,4 +1,4 @@
-package es.unican.is2;
+package es.unican.is2.ImpuestoCirculacion.vehiculos;
 
 import static org.junit.Assert.*;
 
