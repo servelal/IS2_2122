@@ -19,7 +19,7 @@ import es.unican.is2.ImpuestoCirculacion.model.Contribuyente;
 public class Ayuntamiento implements Serializable {
 	
 	// Path absoluto al fichero de almacenamiento (reemplazar si cambia)
-	public static String DATA_FILE = "C:\\Temp\\ayuntamiento.out";
+	public static String DATA_FILE = "ayuntamiento.out";
 
 	private List<Contribuyente> contribuyentes;
 
@@ -40,7 +40,7 @@ public class Ayuntamiento implements Serializable {
 	}
 	
 	/**
-	 * Vuelca los datos de la instancia que se pasa como parámetro
+	 * Vuelca los datos de la instancia que se pasa como parï¿½metro
 	 * al fichero de almacenamiento
 	 * @return Instancia de Ayuntamiento con datos
 	 */
