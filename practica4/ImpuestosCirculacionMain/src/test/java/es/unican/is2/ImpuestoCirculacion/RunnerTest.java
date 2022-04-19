@@ -57,5 +57,19 @@ public class RunnerTest {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	public void dniNullNoValidoTest() {
+		demo.textBox("txtDniContribuyente").setText(null);
+		demo.button("btnBuscar").click();
+		demo.textBox("txtTotalContribuyente").requireText("0");
+		demo.textBox("txtNombreContribuyente").requireText("DNI No V�lido");
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 
 }
