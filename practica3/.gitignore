@@ -5,6 +5,5 @@
 .project
 .settings/
 
-
 # Directorios de artefactos generados en Maven
 target/
