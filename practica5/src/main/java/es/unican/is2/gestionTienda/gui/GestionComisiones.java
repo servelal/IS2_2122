@@ -1,5 +1,5 @@
 package es.unican.is2.gestionTienda.gui;
-
+import java.awt.Menu;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
@@ -8,13 +8,11 @@ import java.util.List;
 
 import es.unican.is2.gestionTienda.Tienda;
 import es.unican.is2.gestionTienda.Vendedor;
-import fundamentos.Menu;
-import fundamentos.Lectura;
-import fundamentos.Mensaje;
 
 /**
  * Gestión de las comisiones de vendedores de una tienda
  */
+
 public class GestionComisiones {
 
 	/**
