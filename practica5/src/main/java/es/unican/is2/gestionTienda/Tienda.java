@@ -17,6 +17,14 @@ import java.util.Scanner;
  * que se pasa como parámetro al crear la tienda
  */
 public class Tienda {
+	
+	/**
+	 * Calculo de WMC, WMCn, CBO, DIT, NOC y CCog
+	 * WMC = 1+1+1+2+2+5+7+5+9 --> 33
+	 * WMCn = 33/9 --> 3,6
+	 * CBO = 
+	 * DIT = 0
+	 */
 
 	private LinkedList<Vendedor> lista = new LinkedList<Vendedor>();
 	private String direccion;
@@ -28,24 +36,27 @@ public class Tienda {
 	 * Crea la tienda cargando los datos desde el fichero indicado
 	 * 
 	 * @param datos Path absoluto del fichero de datos
+	 * @CC del metodo == 1
 	 */
-	public Tienda(String datos) {
+	public Tienda(String datos) {	//WMC +1
 		this.datos = datos;
 	}
 
 	/**
 	 * Retorna la dirección de la tienda
 	 * @return Dirección de la tienda
+	 * @CC del metodo == 1
 	 */
-	public String direccion() {
+	public String direccion() {		//WMC +1
 		return direccion;
 	}
 
 	/**
 	 * Retorna el nombre de la tienda
 	 * @return Nombre de la tienda
+	 * @CC del metodo == 1
 	 */
-	public String nombre() {
+	public String nombre() {		//WMC +1
 		return nombre;
 	}
 
@@ -55,10 +66,11 @@ public class Tienda {
 	 * @param nuevoVendedor
 	 * @return true si el vendedor se ha anhadido 
 	 *         false si ya había un vendedor con el mismo id
+	 * @CC del metodo == 2
 	 */
-	public boolean anhade(Vendedor nuevoVendedor) throws IOException {
+	public boolean anhade(Vendedor nuevoVendedor) throws IOException {	//WMC +1
 		Vendedor v = buscaVendedor(nuevoVendedor.getId());
-		if (v != null) {
+		if (v != null) {	//WMC +1
 			return false;
 		}
 		lista.add(nuevoVendedor);
@@ -72,10 +84,11 @@ public class Tienda {
 	 * @param id
 	 * @return true si se elimina el vendedor 
 	 *         false si no existe ningún vendedor con el id indicado
+	 * @CC del metodo == 2
 	 */
-	public boolean eliminaVendedor(String id) throws IOException {
+	public boolean eliminaVendedor(String id) throws IOException {	//WMC +1
 		Vendedor v = buscaVendedor(id);
-		if (v == null) {
+		if (v == null) {	//WMC +1
 			return false;
 		}
 		lista.remove(v);
@@ -89,19 +102,20 @@ public class Tienda {
 	 * @param importe Importe de la venta
 	 * @return true si se añade la venta 
 	 *         false si no se encuentra el vendedor
+	 * @CC del metodo == 5
 	 */
-	public boolean anhadeVenta(String id, double importe) throws IOException {
+	public boolean anhadeVenta(String id, double importe) throws IOException {	//WMC +1
 		Vendedor v = buscaVendedor(id);
-		if (v == null) {
+		if (v == null) {	//WMC +1
 			return false;
 		}
 		double importeFinal = importe;
-		if (v instanceof VendedorEnPlantilla) {
+		if (v instanceof VendedorEnPlantilla) {	//WMC +1
 			switch (((VendedorEnPlantilla) v).tipo()) {
-			case JUNIOR:
+			case JUNIOR:	//WMC +1
 				importeFinal += importeFinal * 0.005;
 				break;
-			case SENIOR:
+			case SENIOR:	//WMC +1
 				importeFinal += importeFinal * 0.01;
 				break;
 			}
@@ -116,8 +130,9 @@ public class Tienda {
 	 * 
 	 * @param id Id del vendedor
 	 * @return vendedor con ese id o null si no existe ninguno
+	 * @CC del metodo == 7
 	 */
-	public Vendedor buscaVendedor(String id) {
+	public Vendedor buscaVendedor(String id) {	//WMC +1
 
 		lista = new LinkedList<Vendedor>();
 		Scanner in = null;
@@ -131,7 +146,7 @@ public class Tienda {
 			in.next();
 			Vendedor ven = null;
 			// lee los vendedores senior
-			while (in.hasNext() && !in.next().equals("Junior")) {
+			while (in.hasNext() && !in.next().equals("Junior")) {	//WMC +1
 
 				String nombre = in.next();
 				in.next();
@@ -145,7 +160,7 @@ public class Tienda {
 				lista.add(ven);
 			}
 			// lee los vendedores junior
-			while (in.hasNext() && !in.next().equals("Prácticas")) {
+			while (in.hasNext() && !in.next().equals("Prácticas")) {	//WMC +1
 				String nombre = in.next();
 				in.next();
 				String idIn = in.next();
@@ -157,7 +172,7 @@ public class Tienda {
 				ven.setT(totalVentas);
 				lista.add(ven);
 			}
-			while (in.hasNext()) {
+			while (in.hasNext()) {	//WMC +1
 				in.next();
 				String nombre = in.next();
 				in.next();
@@ -172,13 +187,13 @@ public class Tienda {
 			}
 		} catch (FileNotFoundException e) {
 		} finally {
-			if (in != null) {
+			if (in != null) {	//WMC +1
 				in.close();
 			}
 		} // try
 
-		for (Vendedor v : lista) {
-			if (v.getId().equals(id)) {
+		for (Vendedor v : lista) {	//WMC +1
+			if (v.getId().equals(id)) {	//WMC +1
 				return v;
 			}
 		}
@@ -188,8 +203,9 @@ public class Tienda {
 	/**
 	 * Retorna la lista de vendedores actuales de la tienda 
 	 * @return La lista de vendedores
+	 * @CC del metodo == 5
 	 */
-	public List<Vendedor> vendedores() {
+	public List<Vendedor> vendedores() {	//WMC +1
 		lista = new LinkedList<Vendedor>();
 
 		Scanner in = null;
@@ -203,7 +219,7 @@ public class Tienda {
 			in.next();
 			Vendedor ven = null;
 			// lee los vendedores senior
-			while (in.hasNext() && !in.next().equals("Junior")) {
+			while (in.hasNext() && !in.next().equals("Junior")) {	//WMC +1
 
 				String nombre = in.next();
 				in.next();
@@ -217,7 +233,7 @@ public class Tienda {
 				lista.add(ven);
 			}
 			// lee los vendedores junior
-			while (in.hasNext() && !in.next().equals("Prácticas")) {
+			while (in.hasNext() && !in.next().equals("Prácticas")) {	//WMC +1
 				String nombre = in.next();
 				in.next();
 				String idIn = in.next();
@@ -229,7 +245,7 @@ public class Tienda {
 				ven.setT(totalVentas);
 				lista.add(ven);
 			}
-			while (in.hasNext()) {
+			while (in.hasNext()) {	//WMC +1
 				in.next();
 				String nombre = in.next();
 				in.next();
@@ -245,7 +261,7 @@ public class Tienda {
 		} catch (FileNotFoundException e) {
 
 		} finally {
-			if (in != null) {
+			if (in != null) {	//WMC +1
 				in.close();
 			}
 		} // try
@@ -257,21 +273,22 @@ public class Tienda {
 	/**
 	 * Método que actualiza el fichero datosTienda.txt 
 	 * con los datos actualizados de los vendedores
+	 * @CC del metodo == 9
 	 */
-	private void vuelcaDatos() throws IOException {
+	private void vuelcaDatos() throws IOException {	//WMC +1
 		PrintWriter out = null;
 		List<Vendedor> senior = new LinkedList<Vendedor>();
 		List<Vendedor> junior = new LinkedList<Vendedor>();
 		List<Vendedor> practicas = new LinkedList<Vendedor>();
 
-		for (Vendedor v : lista) {
-			if (v instanceof vendedorEnPracticas) {
+		for (Vendedor v : lista) {	//WMC +1
+			if (v instanceof vendedorEnPracticas) {	//WMC +1
 				practicas.add(v);
-			} else if (v instanceof VendedorEnPlantilla) {
+			} else if (v instanceof VendedorEnPlantilla) {	//WMC +1
 				VendedorEnPlantilla vp = (VendedorEnPlantilla) v;
-				if (vp.tipo().equals(TipoVendedor.JUNIOR))
+				if (vp.tipo().equals(TipoVendedor.JUNIOR))	//WMC +1
 					junior.add(vp);
-				else
+				else	
 					senior.add(vp);
 			}
 		}
@@ -284,28 +301,28 @@ public class Tienda {
 			out.println(direccion);
 			out.println();
 			out.println("Senior");
-			for (Vendedor v : senior) {
+			for (Vendedor v : senior) {	//WMC +1
 				VendedorEnPlantilla v1 = (VendedorEnPlantilla) v;
 				out.println("  Nombre: " + v1.getNombre() + " Id: " + v1.getId() + " DNI: "+ v1.getDni()+" TotalVentasMes: "
 						+ v1.getTotalVentas());
 			}
 			out.println();
 			out.println("Junior");
-			for (Vendedor v : junior) {
+			for (Vendedor v : junior) {	//WMC +1
 				VendedorEnPlantilla v2 = (VendedorEnPlantilla) v;
 				out.println("  Nombre: " + v2.getNombre() + " Id: " + v2.getId() + " DNI: "+ v2.getDni()+" TotalVentasMes: "
 						+ v2.getTotalVentas());
 			}
 			out.println();
 			out.println("Prácticas");
-			for (Vendedor v : practicas) {
+			for (Vendedor v : practicas) {	//WMC +1
 				vendedorEnPracticas v3 = (vendedorEnPracticas) v;
 				out.println("  Nombre: " + v3.getNombre() + " Id: " + v3.getId() + " DNI: "+ v3.getDni()+" TotalVentasMes: "
 						+ v3.getTotalVentas());
 			}
 
 		} finally {
-			if (out != null)
+			if (out != null)	//WMC +1
 				out.close();
 		}
 	}
