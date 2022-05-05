@@ -107,6 +107,7 @@ public class Tienda {
 		if (v == null) {	//WMC +1
 			return false;
 		}
+		
 		double importeFinal = importe;
 		if (v instanceof VendedorEnPlantilla) {	//WMC +1 CCog +1
 			switch (((VendedorEnPlantilla) v).tipo()) { // Ccog + 2

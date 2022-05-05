@@ -9,27 +9,28 @@ public class vendedorEnPracticas extends Vendedor {
 	 * WMCn = 4/3 --> 1,3
 	 * CBO = 
 	 * DIT = 1
+	 * Ccog = 0 + 0 + 1 = 1
 	 */
 	
 	private String dni;
 	
 	/**
-	 * Retorna un nuevo vendedor en prácticas
+	 * Retorna un nuevo vendedor en prï¿½cticas
 	 * @param nombre
 	 * @param dni
 	 */
-	public vendedorEnPracticas(String nombre, String id, String dni) {	//WMC +1
+	public vendedorEnPracticas(String nombre, String id, String dni) {	//WMC +1 Ccog = 0
 		super(nombre, id);
 		this.dni= dni;
 	}
 	
-	public String getDni() {	//WMC +1
+	public String getDni() {	//WMC +1 Ccog = 0
 		return dni;
 	}
 
 	@Override
 	public boolean equals(Object obj) {	//WMC +1
-		if (!(obj instanceof vendedorEnPracticas)) 	//WMC +1
+		if (!(obj instanceof vendedorEnPracticas)) 	//WMC +1 Ccog + 1
 			return false;
 		vendedorEnPracticas v = (vendedorEnPracticas) obj;
 		return (v.getId().equals(getId()) && v.getDni().equals(getDni()));
