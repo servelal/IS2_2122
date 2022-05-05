@@ -7,7 +7,7 @@ public class vendedorEnPracticas extends Vendedor {
 	 * Calculo de WMC, WMCn, CBO, DIT, NOC y CCog
 	 * WMC = 1+1++2 --> 4
 	 * WMCn = 4/3 --> 1,3
-	 * CBO = 
+	 * CBO = AFF-0 EFF-1 --> 1
 	 * DIT = 1
 	 */
 	

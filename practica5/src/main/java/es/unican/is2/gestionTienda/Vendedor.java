@@ -12,7 +12,7 @@ public abstract class Vendedor {
 	 * Calculo de WMC, WMCn, CBO, DIT, NOC y CCog
 	 * WMC = 1+1+1+1+1+1 --> 6
 	 * WMCn = 6/6 --> 1
-	 * CBO = AFF-2 EFF-1 --> 2
+	 * CBO = AFF-2 EFF-0 --> 2
 	 * DIT = 0
 	 */
 	
