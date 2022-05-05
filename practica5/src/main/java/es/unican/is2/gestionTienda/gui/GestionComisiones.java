@@ -1,16 +1,20 @@
 package es.unican.is2.gestionTienda.gui;
-import java.awt.Menu;
+
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
+import fundamentos.Lectura;
+import fundamentos.Menu;
+import fundamentos.Mensaje;
+
 import es.unican.is2.gestionTienda.Tienda;
 import es.unican.is2.gestionTienda.Vendedor;
 
 /**
- * Gestión de las comisiones de vendedores de una tienda
+ * Gestion de las comisiones de vendedores de una tienda
  */
 
 public class GestionComisiones {
@@ -46,7 +50,7 @@ public class GestionComisiones {
 
 		// crea la ventana de menu
 		Menu menu = new Menu("Comisiones tienda");
-		menu.insertaOpcion("Añadir venta", NUEVA_VENTA);
+		menu.insertaOpcion("Anhadir venta", NUEVA_VENTA);
 		menu.insertaOpcion("Vendedor del mes", VENDEDOR_DEL_MES);
 		menu.insertaOpcion("Vendedores por ventas", VENDEDORES);
 		int opcion;
