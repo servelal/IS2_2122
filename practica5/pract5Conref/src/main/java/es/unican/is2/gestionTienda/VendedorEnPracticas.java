@@ -19,9 +19,7 @@ public class VendedorEnPracticas extends Vendedor {
 		return (v.getId().equals(getId()) && v.getDni().equals(getDni()));
 	}
 	
-	@Override
 	public void anhadeVenta(double importe) {
 		super.anhade(importe);
-
 	}
 }

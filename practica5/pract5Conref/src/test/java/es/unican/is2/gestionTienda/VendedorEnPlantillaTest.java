@@ -14,7 +14,7 @@ public class VendedorEnPlantillaTest {
 	@Before
 	public void setUp(){
 		sutJunior = new VendedorJunior("Ana", "1", "11111111A");
-		sutSenior = new VendedorEnPlantilla("Pepe", "2", "222222222A");
+		sutSenior = new VendedorSenior("Pepe", "2", "222222222A");
 	}
 	
 	@Test

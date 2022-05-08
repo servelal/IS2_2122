@@ -70,8 +70,6 @@ public abstract class Vendedor {
 	public void anhade(double importe){
 		totalVentas += importe;
 	}
-
-	public abstract void anhadeVenta(double importe);
 	
 	
 }

@@ -1,7 +1,7 @@
 package es.unican.is2.gestionTienda;
 
 
-public class VendedorEnPlantilla extends Vendedor {
+public abstract class VendedorEnPlantilla extends Vendedor {
 	
 	//private TipoVendedor tipo;
 	
@@ -23,9 +23,9 @@ public class VendedorEnPlantilla extends Vendedor {
 		return (v.getId().equals(getId()) && v.getDni().equals(getDni()));
 	}
 
-	@Override
-	public void anhadeVenta(double importe) {
-		super.anhade(importe * 0.005);
-		
+	public abstract void anhadeVenta(double importe);
+	
+	public void anhade(double importe) {
+		super.anhade(importe);
 	}
 }
