@@ -10,17 +10,17 @@ public abstract class Vendedor {
 	
 	private String id;
 	private String nombre;
-	
+	private String dni;
 	
 	// Valor total de las ventas mensuales realizadas por el vendedor
-	private double t;
+	private double totalVentas;
 	
-	public Vendedor(String nombre, String id) {
+	public Vendedor(String nombre, String id, String dni) {
 		this.nombre = nombre;
 		this.id = id;
+		this.dni = dni;
 	}
 	
-
 	/**
 	 * Retorna el nombre del vendedor
 	 * @return nombre
@@ -30,20 +30,27 @@ public abstract class Vendedor {
 	}
 	
 	/**
-	 * Retorna el dni del vendedor
-	 * @return dni
+	 * Retorna el id del vendedor
+	 * @return id
 	 */
 	public String getId() {
 		return id;
 	}
 	
-	
+	/**
+	 * Retorna el dni del vendedor
+	 * @return dni
+	 */
+	public String getDni() {
+		return dni;
+	}
+
 	/**
 	 * Retorna el total de ventas acumuladas por el vendedor
 	 * @return Total de ventas
 	 */
 	public double getTotalVentas() {
-		return t;
+		return totalVentas;
 	}
 	
 	/**
@@ -51,16 +58,20 @@ public abstract class Vendedor {
 	 * Se utiliza para poder cargar los datos desde fichero
 	 * @param Total de ventas
 	 */
-	public void setT(double totalVentas) {
-		this.t = totalVentas;
+	public void setTotalVentas(double totalVentas) {
+		this.totalVentas = totalVentas;
 	}
 	
 	/**
 	 * Anhade una nueva venta al vendedor, actualizando su comision
 	 * @param importe de la venta
 	 */
+	
 	public void anhade(double importe){
-		t += importe;
+		totalVentas += importe;
 	}
+
+	public abstract void anhadeVenta(double importe);
+	
 	
 }

@@ -3,27 +3,16 @@ package es.unican.is2.gestionTienda;
 
 public class VendedorEnPlantilla extends Vendedor {
 	
-	private TipoVendedor tipo;
-	private String dni;
+	//private TipoVendedor tipo;
 	
 	/**
-	 * Retorna un nuevo vendedor en plantilla del tipo que se indica
+	 * Crea un nuevo vendedor en plantilla del tipo que se indica
 	 * @param nombre
 	 * @param dni
 	 * @param tipo
 	 */
-	public VendedorEnPlantilla(String nombre, String id, String dni, TipoVendedor tipo) {
-		super(nombre, id);
-		this.tipo = tipo;
-		this.dni=dni;
-	}
-	
-	public TipoVendedor tipo() {
-		return tipo;
-	}
-	
-	public String getDni() {
-		return dni;
+	public VendedorEnPlantilla(String nombre, String id, String dni) {
+		super(nombre, id, dni);
 	}
 	
 	@Override
@@ -32,5 +21,11 @@ public class VendedorEnPlantilla extends Vendedor {
 			return false;
 		VendedorEnPlantilla v = (VendedorEnPlantilla) obj;
 		return (v.getId().equals(getId()) && v.getDni().equals(getDni()));
+	}
+
+	@Override
+	public void anhadeVenta(double importe) {
+		super.anhade(importe * 0.005);
+		
 	}
 }

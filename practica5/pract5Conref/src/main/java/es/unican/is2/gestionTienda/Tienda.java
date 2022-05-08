@@ -18,19 +18,19 @@ import java.util.Scanner;
  */
 public class Tienda {
 
-	private LinkedList<Vendedor> lista = new LinkedList<Vendedor>();
+	private LinkedList<Vendedor> vendedores = new LinkedList<Vendedor>();
 	private String direccion;
 	private String nombre;
-
-	private String datos;
+	private String nombreFichero;
+	
 
 	/**
 	 * Crea la tienda cargando los datos desde el fichero indicado
 	 * 
-	 * @param datos Path absoluto del fichero de datos
+	 * @param nombreFichero Path absoluto del fichero de datos
 	 */
-	public Tienda(String datos) {
-		this.datos = datos;
+	public Tienda(String nombreFichero) {
+		this.nombreFichero = nombreFichero;
 	}
 
 	/**
@@ -48,6 +48,70 @@ public class Tienda {
 	public String nombre() {
 		return nombre;
 	}
+	
+	/**
+	 * Lee el fichero de datos de vendedores
+	 */
+	public void leeDatos() {
+		Scanner in = null;
+		try {
+			// abre el fichero
+			in = new Scanner(new FileReader(nombreFichero));
+			// configura el formato de números
+			in.useLocale(Locale.ENGLISH);
+			nombre = in.nextLine();
+			direccion = in.nextLine();
+			in.next();
+			Vendedor ven = null;
+			// lee los vendedores senior
+			while (in.hasNext() && !in.next().equals("Junior")) {
+
+				String nombre = in.next();
+				in.next();
+				String idIn = in.next();
+				in.next();
+				String dni= in.next();
+				in.next();
+				double totalVentas = in.nextDouble();
+				ven = new VendedorSenior(nombre, idIn, dni);
+				ven.setTotalVentas(totalVentas);
+				vendedores.add(ven);
+			}
+			// lee los vendedores junior
+			while (in.hasNext() && !in.next().equals("Prácticas")) {
+				String nombre = in.next();
+				in.next();
+				String idIn = in.next();
+				in.next();
+				String dni= in.next();
+				in.next();
+				double totalVentas = in.nextDouble();
+				ven = new VendedorJunior(nombre, idIn, dni);
+				ven.setTotalVentas(totalVentas);
+				vendedores.add(ven);
+			}
+			
+			// lee los vendedores en practicas
+			while (in.hasNext()) {
+				in.next();
+				String nombre = in.next();
+				in.next();
+				String idIn = in.next();
+				in.next();
+				String dni= in.next();
+				in.next();
+				double totalVentas = in.nextDouble();
+				ven = new VendedorEnPracticas(nombre, idIn, dni);
+				ven.setTotalVentas(totalVentas);
+				vendedores.add(ven);
+			}
+		} catch (FileNotFoundException e) {
+		} finally {
+			if (in != null) {
+				in.close();
+			}
+		} // try
+	}
 
 	/**
 	 * Añade un nuevo vendedor a la tienda
@@ -56,12 +120,12 @@ public class Tienda {
 	 * @return true si el vendedor se ha anhadido 
 	 *         false si ya había un vendedor con el mismo id
 	 */
-	public boolean anhade(Vendedor nuevoVendedor) throws IOException {
+	public boolean anhadeVendedor(Vendedor nuevoVendedor) throws IOException {
 		Vendedor v = buscaVendedor(nuevoVendedor.getId());
 		if (v != null) {
 			return false;
 		}
-		lista.add(nuevoVendedor);
+		vendedores.add(nuevoVendedor);
 		vuelcaDatos();
 		return true;
 	}
@@ -78,7 +142,7 @@ public class Tienda {
 		if (v == null) {
 			return false;
 		}
-		lista.remove(v);
+		vendedores.remove(v);
 		vuelcaDatos();
 		return true;
 	}
@@ -95,18 +159,9 @@ public class Tienda {
 		if (v == null) {
 			return false;
 		}
-		double importeFinal = importe;
 		if (v instanceof VendedorEnPlantilla) {
-			switch (((VendedorEnPlantilla) v).tipo()) {
-			case JUNIOR:
-				importeFinal += importeFinal * 0.005;
-				break;
-			case SENIOR:
-				importeFinal += importeFinal * 0.01;
-				break;
-			}
+			((VendedorEnPlantilla) v).anhadeVenta(importe);
 		}
-		v.anhade(importeFinal);
 		vuelcaDatos();
 		return true;
 	}
@@ -118,66 +173,7 @@ public class Tienda {
 	 * @return vendedor con ese id o null si no existe ninguno
 	 */
 	public Vendedor buscaVendedor(String id) {
-
-		lista = new LinkedList<Vendedor>();
-		Scanner in = null;
-		try {
-			// abre el fichero
-			in = new Scanner(new FileReader(datos));
-			// configura el formato de números
-			in.useLocale(Locale.ENGLISH);
-			nombre = in.nextLine();
-			direccion = in.nextLine();
-			in.next();
-			Vendedor ven = null;
-			// lee los vendedores senior
-			while (in.hasNext() && !in.next().equals("Junior")) {
-
-				String nombre = in.next();
-				in.next();
-				String idIn = in.next();
-				in.next();
-				String dni= in.next();
-				in.next();
-				double totalVentas = in.nextDouble();
-				ven = new VendedorEnPlantilla(nombre, idIn, dni, TipoVendedor.SENIOR);
-				ven.setT(totalVentas);
-				lista.add(ven);
-			}
-			// lee los vendedores junior
-			while (in.hasNext() && !in.next().equals("Prácticas")) {
-				String nombre = in.next();
-				in.next();
-				String idIn = in.next();
-				in.next();
-				String dni= in.next();
-				in.next();
-				double totalVentas = in.nextDouble();
-				ven = new VendedorEnPlantilla(nombre, idIn, dni, TipoVendedor.JUNIOR);
-				ven.setT(totalVentas);
-				lista.add(ven);
-			}
-			while (in.hasNext()) {
-				in.next();
-				String nombre = in.next();
-				in.next();
-				String idIn = in.next();
-				in.next();
-				String dni= in.next();
-				in.next();
-				double totalVentas = in.nextDouble();
-				ven = new vendedorEnPracticas(nombre, idIn, dni);
-				ven.setT(totalVentas);
-				lista.add(ven);
-			}
-		} catch (FileNotFoundException e) {
-		} finally {
-			if (in != null) {
-				in.close();
-			}
-		} // try
-
-		for (Vendedor v : lista) {
+		for (Vendedor v : vendedores) {
 			if (v.getId().equals(id)) {
 				return v;
 			}
@@ -190,67 +186,7 @@ public class Tienda {
 	 * @return La lista de vendedores
 	 */
 	public List<Vendedor> vendedores() {
-		lista = new LinkedList<Vendedor>();
-
-		Scanner in = null;
-		try {
-			// abre el fichero
-			in = new Scanner(new FileReader(datos));
-			// configura el formato de números
-			in.useLocale(Locale.ENGLISH);
-			nombre = in.nextLine();
-			direccion = in.nextLine();
-			in.next();
-			Vendedor ven = null;
-			// lee los vendedores senior
-			while (in.hasNext() && !in.next().equals("Junior")) {
-
-				String nombre = in.next();
-				in.next();
-				String idIn = in.next();
-				in.next();
-				String dni= in.next();
-				in.next();
-				double totalVentas = in.nextDouble();
-				ven = new VendedorEnPlantilla(nombre, idIn, dni, TipoVendedor.SENIOR);
-				ven.setT(totalVentas);
-				lista.add(ven);
-			}
-			// lee los vendedores junior
-			while (in.hasNext() && !in.next().equals("Prácticas")) {
-				String nombre = in.next();
-				in.next();
-				String idIn = in.next();
-				in.next();
-				String dni= in.next();
-				in.next();
-				double totalVentas = in.nextDouble();
-				ven = new VendedorEnPlantilla(nombre, idIn, dni, TipoVendedor.JUNIOR);
-				ven.setT(totalVentas);
-				lista.add(ven);
-			}
-			while (in.hasNext()) {
-				in.next();
-				String nombre = in.next();
-				in.next();
-				String idIn = in.next();
-				in.next();
-				String dni= in.next();
-				in.next();
-				double totalVentas = in.nextDouble();
-				ven = new vendedorEnPracticas(nombre, idIn, dni);
-				ven.setT(totalVentas);
-				lista.add(ven);
-			}
-		} catch (FileNotFoundException e) {
-
-		} finally {
-			if (in != null) {
-				in.close();
-			}
-		} // try
-
-		return lista;
+		return vendedores;
 
 	}
 
@@ -264,21 +200,22 @@ public class Tienda {
 		List<Vendedor> junior = new LinkedList<Vendedor>();
 		List<Vendedor> practicas = new LinkedList<Vendedor>();
 
-		for (Vendedor v : lista) {
-			if (v instanceof vendedorEnPracticas) {
+		for (Vendedor v : vendedores) {
+			if (v instanceof VendedorEnPracticas) {
 				practicas.add(v);
 			} else if (v instanceof VendedorEnPlantilla) {
 				VendedorEnPlantilla vp = (VendedorEnPlantilla) v;
-				if (vp.tipo().equals(TipoVendedor.JUNIOR))
+				if (vp instanceof VendedorJunior) {
 					junior.add(vp);
-				else
+				} else {
 					senior.add(vp);
+				}
 			}
 		}
 
 		try {
 
-			out = new PrintWriter(new FileWriter(datos));
+			out = new PrintWriter(new FileWriter(nombreFichero));
 
 			out.println(nombre);
 			out.println(direccion);
@@ -299,7 +236,7 @@ public class Tienda {
 			out.println();
 			out.println("Prácticas");
 			for (Vendedor v : practicas) {
-				vendedorEnPracticas v3 = (vendedorEnPracticas) v;
+				VendedorEnPracticas v3 = (VendedorEnPracticas) v;
 				out.println("  Nombre: " + v3.getNombre() + " Id: " + v3.getId() + " DNI: "+ v3.getDni()+" TotalVentasMes: "
 						+ v3.getTotalVentas());
 			}
