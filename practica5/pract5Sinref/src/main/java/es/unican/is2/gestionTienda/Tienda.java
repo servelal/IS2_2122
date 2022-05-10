@@ -21,10 +21,10 @@ public class Tienda {
 	 * Calculo de WMC, WMCn, CBO, DIT, NOC y CCog
 	 * WMC = 1 + 1 + 1 + 2 + 2 + 5 + 7+ 5 + 9 = 33
 	 * WMCn = 33/9 = 3.6
-	 * CBO = AFF-2 EFF-0 --> 2
+	 * CBO = AFF-0 EFF-1 --> 1
 	 * DIT = 0
 	 * NOC = 0
-	 * CCog = 0 + 0 + 0 + 1 + 1 + 4 + 8 + 5 + 11 = 30
+	 * CCog = 0 + 0 + 0 + 1 + 1 + 5 + 10 + 7 + 11 = 35
 	 */
 
 	private LinkedList<Vendedor> lista = new LinkedList<Vendedor>();
@@ -102,9 +102,9 @@ public class Tienda {
 	 *         false si no se encuentra el vendedor
 	 * @CC del metodo = 5
 	 */
-	public boolean anhadeVenta(String id, double importe) throws IOException { // WMC +1 Ccog 4
+	public boolean anhadeVenta(String id, double importe) throws IOException { // WMC +1 Ccog 5
 		Vendedor v = buscaVendedor(id);
-		if (v == null) {	//WMC +1
+		if (v == null) {	//WMC +1 CCog +1
 			return false;
 		}
 		
@@ -131,7 +131,7 @@ public class Tienda {
 	 * @return vendedor con ese id o null si no existe ninguno
 	 * @CC del metodo = 7
 	 */
-	public Vendedor buscaVendedor(String id) { //Ccog 8 WMC +1
+	public Vendedor buscaVendedor(String id) { //Ccog 10 WMC +1
 
 		lista = new LinkedList<Vendedor>();
 		Scanner in = null;
@@ -185,9 +185,9 @@ public class Tienda {
 				ven.setT(totalVentas);
 				lista.add(ven);
 			}
-		} catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) {		//Ccog+1
 		} finally {
-			if (in != null) {	//WMC +1
+			if (in != null) {	//WMC +1 Ccog+1
 				in.close();
 			}
 		} // try
@@ -205,7 +205,7 @@ public class Tienda {
 	 * @return La lista de vendedores
 	 * @CC del metodo = 5
 	 */
-	public List<Vendedor> vendedores() { //Ccog 5 WMC +1
+	public List<Vendedor> vendedores() { //Ccog 7 WMC +1
 
 		lista = new LinkedList<Vendedor>();
 
@@ -259,10 +259,10 @@ public class Tienda {
 				ven.setT(totalVentas);
 				lista.add(ven);
 			}
-		} catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) {		//Ccog+1
 
 		} finally {
-			if (in != null) {	//WMC +1
+			if (in != null) {	//WMC +1	Ccog+1
 				in.close();
 			}
 		} // try

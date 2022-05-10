@@ -30,10 +30,10 @@ public class GestionComisiones {
 	 * CBO = AFF-0 EFF-0 --> 0
 	 * DIT = 0
 	 * NOC = 0
-	 * CCog = 16+0+2 = 18
+	 * CCog = 18+0+2 = 20
 	 */
 	
-	public static void main(String[] args) {	//WMC +1  CCog =16
+	public static void main(String[] args) {	//WMC +1  CCog =19
 		// opciones del menu
 		final int NUEVA_VENTA = 0, VENDEDOR_DEL_MES = 1, VENDEDORES = 2;
 
@@ -69,10 +69,10 @@ public class GestionComisiones {
 				dni = lect.leeString("Id Vendedor");
 				double importe = lect.leeDouble("Importe");
 				try {
-					if (!tienda.anhadeVenta(dni, importe)) {	//WMC +1 CCog+2
+					if (!tienda.anhadeVenta(dni, importe)) {	//WMC +1 CCog+3
 						mensaje("ERROR", "El vendedor no existe");
 					}
-				} catch (IOException e) { //CCog+2
+				} catch (IOException e) { //CCog+1
 					mensaje("ERROR", "No se pudo guardar el cambio");
 				}
 				break;
@@ -87,7 +87,7 @@ public class GestionComisiones {
 						maxVentas = v.getTotalVentas();
 						resultado.clear();
 						resultado.add(v);
-					} else if (v.getTotalVentas() == maxVentas) {	//WMC +1  CCog+1
+					} else if (v.getTotalVentas() == maxVentas) {	//WMC +1  CCog+3
 						resultado.add(v);
 					}
 				}
