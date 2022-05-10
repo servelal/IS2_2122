@@ -9,8 +9,9 @@ public abstract class VendedorEnPlantilla extends Vendedor {
 	 * Calculo de WMC, WMCn, CBO, DIT, NOC y CCog
 	 * WMC = 1 + 2 + 1 + 1 --> 5
 	 * WMCn = 5/4 --> 1,2
-	 * CBO = AFF-0 EFF-1 --> 1
+	 * CBO = AFF-2 EFF-1 --> 2
 	 * DIT = 1
+	 * NOC = 2
 	 * Ccog = 0 + 0 + 0 + 1 = 1
 	 */
 	

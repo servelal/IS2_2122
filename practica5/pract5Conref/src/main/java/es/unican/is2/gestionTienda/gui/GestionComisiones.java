@@ -13,7 +13,7 @@ import fundamentos.Lectura;
 import fundamentos.Mensaje;
 
 /**
- * Gestión de las comisiones de vendedores de una tienda
+ * Gestiï¿½n de las comisiones de vendedores de una tienda
  */
 public class GestionComisiones {
 
@@ -28,7 +28,7 @@ public class GestionComisiones {
 	 * CBO = AFF-0 EFF-0 --> 0
 	 * DIT = 0
 	 * NOC = 0
-	 * CCog = 19 + 0 + 2 = 20
+	 * CCog = 18 + 0 + 2 = 20
 	 */
 	
 	public static void main(String[] args) {		//WMC+1 Ccog=18
@@ -48,7 +48,7 @@ public class GestionComisiones {
 
 		// crea la ventana de menu
 		Menu menu = new Menu("Comisiones tienda");
-		menu.insertaOpcion("Añadir venta", NUEVA_VENTA);
+		menu.insertaOpcion("Aï¿½adir venta", NUEVA_VENTA);
 		menu.insertaOpcion("Vendedor del mes", VENDEDOR_DEL_MES);
 		menu.insertaOpcion("Vendedores por ventas", VENDEDORES);
 		int opcion;
