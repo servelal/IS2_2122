@@ -27,7 +27,7 @@ public class Tienda {
 	 * CCog = 0 + 0 + 0 + 7 + 1 + 1 + 2 + 3 + 12 = 26
 	 */
 	
-	private LinkedList<Vendedor> vendedores = new LinkedList<Vendedor>();
+	private LinkedList<Vendedor> vendedores = new LinkedList<>();
 	private String direccion;
 	private String nombre;
 	private String nombreFichero;
@@ -62,10 +62,8 @@ public class Tienda {
 	 * Lee el fichero de datos de vendedores
 	 */
 	public void leeDatos() {	//WMC +1	CCog+7
-		Scanner in = null;
-		try {
-			// abre el fichero
-			in = new Scanner(new FileReader(nombreFichero));
+		// abre el fichero
+		try (Scanner in = new Scanner(new FileReader(nombreFichero))){	
 			// configura el formato de números
 			in.useLocale(Locale.ENGLISH);
 			nombre = in.nextLine();
@@ -75,7 +73,7 @@ public class Tienda {
 			// lee los vendedores senior
 			while (in.hasNext() && !in.next().equals("Junior")) {	//WMC +1	CCog +2
 
-				String nombre = in.next();
+				String nombreLeido = in.next();
 				in.next();
 				String idIn = in.next();
 				in.next();
@@ -88,7 +86,7 @@ public class Tienda {
 			}
 			// lee los vendedores junior
 			while (in.hasNext() && !in.next().equals("Prácticas")) {	//WMC +1	CCog +2
-				String nombre = in.next();
+				String nombreLeido = in.next();
 				in.next();
 				String idIn = in.next();
 				in.next();
@@ -103,7 +101,7 @@ public class Tienda {
 			// lee los vendedores en practicas
 			while (in.hasNext()) {		//WMC +1	CCog +1
 				in.next();
-				String nombre = in.next();
+				String nombreLeido = in.next();
 				in.next();
 				String idIn = in.next();
 				in.next();
@@ -204,10 +202,9 @@ public class Tienda {
 	 * con los datos actualizados de los vendedores
 	 */
 	private void vuelcaDatos() throws IOException {		//WMC +1	CCog+12
-		PrintWriter out = null;
-		List<Vendedor> senior = new LinkedList<Vendedor>();
-		List<Vendedor> junior = new LinkedList<Vendedor>();
-		List<Vendedor> practicas = new LinkedList<Vendedor>();
+		List<Vendedor> senior = new LinkedList<>();
+		List<Vendedor> junior = new LinkedList<>();
+		List<Vendedor> practicas = new LinkedList<>();
 
 		for (Vendedor v : vendedores) {		//WMC +1	CCog +1
 			if (v instanceof VendedorEnPracticas) {		//WMC +1	CCog +2
@@ -222,10 +219,7 @@ public class Tienda {
 			}
 		}
 
-		try {
-
-			out = new PrintWriter(new FileWriter(nombreFichero));
-
+		try (PrintWriter out = new PrintWriter(new FileWriter(nombreFichero));){
 			out.println(nombre);
 			out.println(direccion);
 			out.println();
