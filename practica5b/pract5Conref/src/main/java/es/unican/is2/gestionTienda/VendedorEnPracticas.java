@@ -30,6 +30,15 @@ public class VendedorEnPracticas extends Vendedor {
 		return (v.getId().equals(getId()) && v.getDni().equals(getDni()));
 	}
 	
+	//Como sobreescribimos el equals tambien debemos cambiar el hashCode()
+	@Override
+	public int hashCode() {
+		String str = this.getId();
+		str = str.substring(0, str.length()-1);
+		int strInt = Integer.parseInt(str);
+		return strInt;
+	}
+	
 	public void anhadeVenta(double importe) {		//WMC+1
 		super.anhade(importe);
 	}
