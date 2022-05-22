@@ -14,10 +14,10 @@ import java.util.Scanner;
  * Clase que representa una tienda con un conjunto de vendedores.
  * Gestiona las ventas realizadas y las comisiones asignadas a cada
  * vendedor. Los datos de la tienda se almacenan en un fichero de texto
- * que se pasa como parámetro al crear la tienda
+ * que se pasa como parï¿½metro al crear la tienda
  */
 public class Tienda {
-	/**
+	/*
 	 * Calculo de WMC, WMCn, CBO, DIT, NOC y CCog
 	 * WMC = 1 + 1 + 1 + 5 + 2 + 2 + 3 + 3 + 1 + 9 = 28
 	 * WMCn = 28/10 = 2.8
@@ -26,12 +26,12 @@ public class Tienda {
 	 * NOC = 0
 	 * CCog = 0 + 0 + 0 + 7 + 1 + 1 + 2 + 3 + 12 = 26
 	 */
-	
+
 	private LinkedList<Vendedor> vendedores = new LinkedList<>();
 	private String direccion;
 	private String nombre;
 	private String nombreFichero;
-	
+
 
 	/**
 	 * Crea la tienda cargando los datos desde el fichero indicado
@@ -43,8 +43,8 @@ public class Tienda {
 	}
 
 	/**
-	 * Retorna la dirección de la tienda
-	 * @return Dirección de la tienda
+	 * Retorna la direcciï¿½n de la tienda
+	 * @return Direcciï¿½n de la tienda
 	 */
 	public String direccion() {		//WMC +1	CCog+0
 		return direccion;
@@ -57,14 +57,14 @@ public class Tienda {
 	public String nombre() {	//WMC +1	CCog+0
 		return nombre;
 	}
-	
+
 	/**
 	 * Lee el fichero de datos de vendedores
 	 */
 	public void leeDatos() {	//WMC +1	CCog+7
 		// abre el fichero
 		try (Scanner in = new Scanner(new FileReader(nombreFichero))){	
-			// configura el formato de números
+			// configura el formato de nï¿½meros
 			in.useLocale(Locale.ENGLISH);
 			nombre = in.nextLine();
 			direccion = in.nextLine();
@@ -80,12 +80,12 @@ public class Tienda {
 				String dni= in.next();
 				in.next();
 				double totalVentas = in.nextDouble();
-				ven = new VendedorSenior(nombre, idIn, dni);
+				ven = new VendedorSenior(nombreLeido, idIn, dni);
 				ven.setTotalVentas(totalVentas);
 				vendedores.add(ven);
 			}
 			// lee los vendedores junior
-			while (in.hasNext() && !in.next().equals("Prácticas")) {	//WMC +1	CCog +2
+			while (in.hasNext() && !in.next().equals("Prï¿½cticas")) {	//WMC +1	CCog +2
 				String nombreLeido = in.next();
 				in.next();
 				String idIn = in.next();
@@ -93,11 +93,11 @@ public class Tienda {
 				String dni= in.next();
 				in.next();
 				double totalVentas = in.nextDouble();
-				ven = new VendedorJunior(nombre, idIn, dni);
+				ven = new VendedorJunior(nombreLeido, idIn, dni);
 				ven.setTotalVentas(totalVentas);
 				vendedores.add(ven);
 			}
-			
+
 			// lee los vendedores en practicas
 			while (in.hasNext()) {		//WMC +1	CCog +1
 				in.next();
@@ -108,24 +108,20 @@ public class Tienda {
 				String dni= in.next();
 				in.next();
 				double totalVentas = in.nextDouble();
-				ven = new VendedorEnPracticas(nombre, idIn, dni);
+				ven = new VendedorEnPracticas(nombreLeido, idIn, dni);
 				ven.setTotalVentas(totalVentas);
 				vendedores.add(ven);
 			}
 		} catch (FileNotFoundException e) {		//Ccog+1
-		} finally {
-			if (in != null) {	//WMC +1	CCog +1
-				in.close();
-			}
-		} // try
+		}
 	}
 
 	/**
-	 * Añade un nuevo vendedor a la tienda
+	 * Aï¿½ade un nuevo vendedor a la tienda
 	 * 
 	 * @param nuevoVendedor
 	 * @return true si el vendedor se ha anhadido 
-	 *         false si ya había un vendedor con el mismo id
+	 *         false si ya habï¿½a un vendedor con el mismo id
 	 */
 	public boolean anhadeVendedor(Vendedor nuevoVendedor) throws IOException {		//WMC +1	CCog+1
 		Vendedor v = buscaVendedor(nuevoVendedor.getId());
@@ -138,11 +134,11 @@ public class Tienda {
 	}
 
 	/**
-	 * Elimina el vendedor cuyo dni se pasa como parámetro
+	 * Elimina el vendedor cuyo dni se pasa como parï¿½metro
 	 * 
 	 * @param id
 	 * @return true si se elimina el vendedor 
-	 *         false si no existe ningún vendedor con el id indicado
+	 *         false si no existe ningï¿½n vendedor con el id indicado
 	 */
 	public boolean eliminaVendedor(String id) throws IOException {		//WMC +1	CCog+1
 		Vendedor v = buscaVendedor(id);
@@ -155,10 +151,10 @@ public class Tienda {
 	}
 
 	/**
-	 * Añade una venta a un vendedor
+	 * Aï¿½ade una venta a un vendedor
 	 * @param id Id del vendedor
 	 * @param importe Importe de la venta
-	 * @return true si se añade la venta 
+	 * @return true si se aï¿½ade la venta 
 	 *         false si no se encuentra el vendedor
 	 */
 	public boolean anhadeVenta(String id, double importe) throws IOException {		//WMC +1	CCog+2
@@ -198,7 +194,7 @@ public class Tienda {
 	}
 
 	/**
-	 * Método que actualiza el fichero datosTienda.txt 
+	 * Metodo que actualiza el fichero datosTienda.txt 
 	 * con los datos actualizados de los vendedores
 	 */
 	private void vuelcaDatos() throws IOException {		//WMC +1	CCog+12
@@ -237,16 +233,12 @@ public class Tienda {
 						+ v2.getTotalVentas());
 			}
 			out.println();
-			out.println("Prácticas");
+			out.println("Practicas");
 			for (Vendedor v : practicas) {		//WMC +1	CCog +1
 				VendedorEnPracticas v3 = (VendedorEnPracticas) v;
 				out.println("  Nombre: " + v3.getNombre() + " Id: " + v3.getId() + " DNI: "+ v3.getDni()+" TotalVentasMes: "
 						+ v3.getTotalVentas());
 			}
-
-		} finally {
-			if (out != null)		//WMC +1	CCog +1
-				out.close();
 		}
 	}
 

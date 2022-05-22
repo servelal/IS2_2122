@@ -19,25 +19,25 @@ public class VendedorEnPlantillaTest {
 	
 	@Test
 	public void testConstructor() {
-		assertEquals(sutJunior.getId(), "1");
-		assertEquals(sutJunior.getDni(), "11111111A");
-		assertEquals(sutJunior.getNombre(), "Ana");		
+		assertEquals("1", sutJunior.getId());
+		assertEquals("11111111A", sutJunior.getDni());
+		assertEquals("Ana", sutJunior.getNombre());		
 	}
 
 	@Test
 	public void testAnhadeVenta() {
 		
 		sutJunior.anhade(200);
-		assertEquals(sutJunior.getTotalVentas(), 200, 0);
+		assertEquals(200, sutJunior.getTotalVentas(), 0);
 		
 		sutJunior.anhade(300);
-		assertEquals(sutJunior.getTotalVentas(), 500, 0);
+		assertEquals(500, sutJunior.getTotalVentas(), 0);
 		
 		sutSenior.anhade(300);
-		assertEquals(sutSenior.getTotalVentas(), 300, 0);
+		assertEquals(300, sutSenior.getTotalVentas(), 0);
 		
 		sutSenior.anhade(300);
-		assertEquals(sutSenior.getTotalVentas(), 600, 0);
+		assertEquals(600, sutSenior.getTotalVentas(), 0);
 		
 	}
 	
@@ -45,18 +45,18 @@ public class VendedorEnPlantillaTest {
 	public void testSetTotalVentas() {
 		
 		sutJunior.setTotalVentas(2000);
-		assertEquals(sutJunior.getTotalVentas(), 2000, 0);	
+		assertEquals(2000, sutJunior.getTotalVentas(), 0);	
 		sutJunior.setTotalVentas(4000);
-		assertEquals(sutJunior.getTotalVentas(), 4000, 0);	
+		assertEquals(4000, sutJunior.getTotalVentas(), 0);	
 		sutJunior.setTotalVentas(0);
-		assertEquals(sutJunior.getTotalVentas(), 0, 0);
+		assertEquals(0, sutJunior.getTotalVentas(), 0);
 		
 		sutSenior.setTotalVentas(4500);
-		assertEquals(sutSenior.getTotalVentas(), 4500, 0);		
+		assertEquals(4500, sutSenior.getTotalVentas(), 0);		
 		sutSenior.setTotalVentas(4000);
-		assertEquals(sutSenior.getTotalVentas(), 4000, 0);
+		assertEquals(4000, sutSenior.getTotalVentas(), 0);
 		sutJunior.setTotalVentas(0);
-		assertEquals(sutJunior.getTotalVentas(), 0, 0);	
+		assertEquals(0, sutJunior.getTotalVentas(), 0);	
 		
 	}
 
@@ -67,18 +67,18 @@ public class VendedorEnPlantillaTest {
 		VendedorJunior distintoIdJunior = new VendedorJunior("Ana", "2", "11111111A");
 		VendedorJunior distintoDNIJunior = new VendedorJunior("Ana", "1", "222222222A");
 		
-		assertTrue(sutJunior.equals(igualJunior));
-		assertFalse(sutJunior.equals(distintoIdJunior));
-		assertFalse(sutJunior.equals(distintoDNIJunior));
+		assertEquals(sutJunior, igualJunior);
+		assertNotEquals(sutJunior, distintoIdJunior);
+		assertNotEquals(sutJunior, distintoDNIJunior);
 		
 		
 		VendedorSenior igualSenior = new VendedorSenior("Pepe", "2", "222222222A");
 		VendedorSenior distintoIdSenior = new VendedorSenior("Pepe", "3", "222222222A");
 		VendedorSenior distintoDNISenior = new VendedorSenior("Pepe", "2", "33333333A");
 		
-		assertTrue(sutSenior.equals(igualSenior));
-		assertFalse(sutSenior.equals(distintoIdSenior));
-		assertFalse(sutSenior.equals(distintoDNISenior));
+		assertEquals(sutSenior, igualSenior);
+		assertNotEquals(sutSenior, distintoIdSenior);
+		assertNotEquals(sutSenior, distintoDNISenior);
 		
 		
 		

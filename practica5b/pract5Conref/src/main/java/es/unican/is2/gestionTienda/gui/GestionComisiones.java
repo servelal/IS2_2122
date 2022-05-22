@@ -31,9 +31,11 @@ public class GestionComisiones {
 	 * CCog = 18 + 0 + 2 = 20
 	 */
 	
-	public static void main(String[] args) {		//WMC+1 Ccog=18
+	public static void main(String[] args) {		//WMC+1 Ccog=20
 		// opciones del menu
-		final int NUEVA_VENTA = 0, VENDEDOR_DEL_MES = 1, VENDEDORES = 2;
+		final int NUEVA_VENTA = 0;
+		final int VENDEDOR_DEL_MES = 1;
+		final int VENDEDORES = 2;
 
 		// variables auxiliares
 		String dni;
@@ -77,6 +79,7 @@ public class GestionComisiones {
 
 			case VENDEDOR_DEL_MES:		//WMC+1
 
+				msj = "";
 				vendedores = tienda.vendedores();
 				resultado = new LinkedList<>();
 				double maxVentas = 0.0;
@@ -85,14 +88,12 @@ public class GestionComisiones {
 						maxVentas = v.getTotalVentas();
 						resultado.clear();
 						resultado.add(v);
+						msj += v.getNombre() + "\n";
+						
 					} else if (v.getTotalVentas() == maxVentas) {		//WMC+1		Ccog+3
 						resultado.add(v);
+						msj += v.getNombre() + "\n";
 					}
-				}
-
-				msj = "";
-				for (Vendedor vn : resultado) {		//WMC+1		Ccog+2
-					msj += vn.getNombre() + "\n";
 				}
 				mensaje("VENDEDORES DEL MES", msj);
 				break;
@@ -111,7 +112,7 @@ public class GestionComisiones {
 			break;
 		
 		default:
-			System.out.println("Error del tipo de vendedor");
+			System.out.println("Error. Opcion incorrecta.");
 		}
 		}
 	}

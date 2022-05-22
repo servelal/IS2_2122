@@ -42,9 +42,4 @@ public abstract class VendedorEnPlantilla extends Vendedor {
 	}
 
 	public abstract void anhadeVenta(double importe);		//WMC+1
-
-	@Override
-	public void anhade(double importe) {		//WMC+1
-		super.anhade(importe);
-	}
 }
