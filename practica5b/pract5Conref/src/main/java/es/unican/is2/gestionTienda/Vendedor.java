@@ -24,7 +24,7 @@ public abstract class Vendedor {
 	// Valor total de las ventas mensuales realizadas por el vendedor
 	private double totalVentas;
 	
-	public Vendedor(String nombre, String id, String dni) {		//WMC+1
+	protected Vendedor(String nombre, String id, String dni) {		//WMC+1
 		this.nombre = nombre;
 		this.id = id;
 		this.dni = dni;

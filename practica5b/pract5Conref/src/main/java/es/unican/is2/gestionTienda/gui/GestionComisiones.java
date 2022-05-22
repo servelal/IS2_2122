@@ -78,7 +78,7 @@ public class GestionComisiones {
 			case VENDEDOR_DEL_MES:		//WMC+1
 
 				vendedores = tienda.vendedores();
-				resultado = new LinkedList<Vendedor>();
+				resultado = new LinkedList<>();
 				double maxVentas = 0.0;
 				for (Vendedor v : vendedores) {		//WMC+1		Ccog+2
 					if (v.getTotalVentas() > maxVentas) {		//WMC+1		Ccog+3
@@ -101,7 +101,7 @@ public class GestionComisiones {
 		case VENDEDORES:		//WMC+1
 
 			vendedores = tienda.vendedores();
-			System.out.println(vendedores.size());
+			System.err.println(vendedores.size());
 			Collections.sort(vendedores, new ComparadorVendedorVentas());			
 			msj = "";
 			for (Vendedor vn : vendedores) {		//WMC+1		Ccog+2
@@ -109,6 +109,9 @@ public class GestionComisiones {
 			}
 			mensaje("VENDEDORES", msj);
 			break;
+		
+		default:
+			System.out.println("Error del tipo de vendedor");
 		}
 		}
 	}

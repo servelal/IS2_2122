@@ -35,8 +35,8 @@ public class VendedorEnPracticas extends Vendedor {
 	public int hashCode() {
 		String str = this.getId();
 		str = str.substring(0, str.length()-1);
-		int strInt = Integer.parseInt(str);
-		return strInt;
+		return Integer.parseInt(str);
+		
 	}
 	
 	public void anhadeVenta(double importe) {		//WMC+1
